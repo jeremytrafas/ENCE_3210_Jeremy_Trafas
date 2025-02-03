@@ -63,9 +63,7 @@
         "lib_footprint_mismatch|164500000|64725000|11b24174-36b6-4a4e-89d7-8923256ac899|00000000-0000-0000-0000-000000000000",
         "silk_edge_clearance|164710000|47870000|a1531b39-8dae-4637-9a8d-49791182f594|6b3dedb8-4fe8-4f06-a21d-a82a4a0b0be7",
         "silk_edge_clearance|164830000|47990000|a1531b39-8dae-4637-9a8d-49791182f594|83e84df5-ceb6-4bee-b300-6775b1af197e",
-        "silk_edge_clearance|168070000|61404819|14983443-9435-48e9-8e51-6faf3f00bdfc|952d105a-f1e5-4664-9c76-7e1afd0f435d",
-        "silk_overlap|105900000|66300000|3fc97e9e-5afc-48d9-8fc6-a5a305c313dd|0e095d9f-7e25-4726-bd23-818595c0e07b",
-        "silk_overlap|123500000|63850000|3fc97e9e-5afc-48d9-8fc6-a5a305c313dd|dff581b5-8fb5-4e9f-a2d1-eb67cacea753"
+        "silk_edge_clearance|168070000|61404819|14983443-9435-48e9-8e51-6faf3f00bdfc|952d105a-f1e5-4664-9c76-7e1afd0f435d"
       ],
       "meta": {
         "filename": "board_design_settings.json",
