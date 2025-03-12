@@ -41,7 +41,7 @@ bool blinkState = false;
 #define CAL 5 
 #define LIGHT 6
 #define LED 9 
-#define TIMER1_COMPARE_VALUE 31250 //1s w/ 256 prescale 
+#define TIMER1_COMPARE_VALUE 46875 //1s w/ 256 prescale 
 
 // timer counter
 volatile unsigned int gCounter = 0;
@@ -82,19 +82,20 @@ void setup() {
   pinMode(CAL, INPUT);
   pinMode(LED, OUTPUT);
 
+  //start timer stuff
   noInterrupts();
-  // reset timer regs 
-  TCCR1A = 0;
   TCCR1B = 0;
+  TCCR1A = 0;
 
-  // compare match 
-  OCR1A = TIMER1_COMPARE_VALUE;
+  TCCR2B |= (1<<WGM21);//ctc mode
+  TCCR2B |= (1<<CS22);//prescale at 1024
+  TCCR2B |= (1<<CS21);
+  TCCR2B |= (1<<CS20);
 
-  // set prescales 
-  TCCR1B |= (1<<CS12);
 
-  // enable timer compare interrupt
-  TIMSK1 |= (1<<OCIE1A);
+  OCR1A = TIMER1_COMPARE_VALUE; //will reset after 3 seconds
+
+  TIMSK1 |= (1<<OCIE1A); // attach interrupt to timer 1
   interrupts();
 
   // create ISR vector table for onoff and lock
@@ -248,6 +249,7 @@ void loop() {
 
 ISR(TIMER1_COMPA_vect){
   // toggle first 
+  Serial.println(gCounter);
   gCounter++; // increment counter by 1 every second
 }
 
